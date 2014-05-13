@@ -98,14 +98,15 @@ public class DeckofCards {
 					diamonds[i] = "A" + diamond + " ";
 				}
 			}
-
+			//addint the cycles of cards into the tables of the PDF file
+     
 			for (int i = 2; i < 15; i++) {
 				table.addCell(new Paragraph(spades[i],black));				
 				table.addCell(new Paragraph(clubs[i],black));
 				table.addCell(new Paragraph(diamonds[i],red));
 				table.addCell(new Paragraph(hearts[i],red));
 				
-				
+				//Adding table to the document
 			}
 			document.add(table);
 			document.close();
