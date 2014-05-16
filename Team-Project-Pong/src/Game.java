@@ -136,9 +136,9 @@ public class Game extends Canvas implements Runnable {
 		ball.render(g);
 		//drawing the winner , when he reaches his score
 		if (p1Score==10) {
-			g.drawString("Player 1 WINS", 150, 100);
+			g.drawString("PLAYER 1 WINS", 150, 100);
 		}else if(p2Score == 10) {
-			g.drawString("Player 2 Wins", 150, 100);
+			g.drawString("PLAYER 2 WINS", 150, 100);
 		}
 		g.dispose();
 		bs.show();
