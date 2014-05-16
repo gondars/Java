@@ -43,6 +43,10 @@ public class Ball {
 		y += vy;
 		
 		paddleCollide(game);
+		if (game.p1Score == 10 || game.p2Score == 10) { // adding endscore
+			game.stop();
+			
+		}
 	}
 	
 	private void paddleCollide(Game game){ // giving the collision a meaning
