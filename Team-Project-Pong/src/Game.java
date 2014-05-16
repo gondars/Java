@@ -1,16 +1,14 @@
 import java.awt.BorderLayout;
-import java.awt.BufferCapabilities;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.awt.image.renderable.RenderableImage;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
 
-import javax.swing.JFrame;
+
+import javax.swing.*;
+
 
 
 public class Game extends Canvas implements Runnable {
@@ -36,6 +34,7 @@ public class Game extends Canvas implements Runnable {
 	
 	int p1Score , p2Score; // creating scores
 	
+	
 	public void run(){
 		requestFocus(); // doesn't need to click on game to run it
 		
@@ -58,8 +57,14 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public synchronized void stop(){ // stopping the game
-		gameRunning = false;
-		System.exit(0);
+		gameRunning = true; //false
+		//System.exit(0);
+		try {
+			Thread.sleep(350);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
 	}
 	
 	public Game(){
@@ -116,13 +121,25 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.WHITE); // score color
 		
 		//drawing scores
-		g.drawString("Player 1: " + p1Score , 5 , 10);
+		g.drawString("Player 1: " + p1Score , 0 , 10);
 		g.drawString("Player 2: " + p2Score , getWidth() -60 , 10);
-		
+		//drawing instructions
+		g.drawString("Player 1 Controls:", 0, 210);
+		g.drawString("Up - 'W'", 0, 220);
+		g.drawString("Down - 'S'", 0, 230);
+		g.drawString("Player 2 Controls:", 310, 210);
+		g.drawString("Up - ArrowUp", 330, 220);
+		g.drawString("Down - ArrowDown", 300, 230);
+		g.drawString("FIrst one to 10 is the winner", 130 , 10);
 		player.render(g);
 		player2.render(g);
 		ball.render(g);
-		
+		//drawing the winner , when he reaches his score
+		if (p1Score==10) {
+			g.drawString("Player 1 WINS", 150, 100);
+		}else if(p2Score == 10) {
+			g.drawString("Player 2 Wins", 150, 100);
+		}
 		g.dispose();
 		bs.show();
 			
@@ -131,10 +148,16 @@ public class Game extends Canvas implements Runnable {
 		
 	}
 	
-	public static void main(String[] args){
-		Game game = new Game();		
-		game.start();
+	
+	
+	public static void main (String[] args){
+		Game game = new Game();						
+				game.start();
+			
+		
+		
 	}
+	
 	
 
 	
