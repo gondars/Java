@@ -2,41 +2,39 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-
 public class PlayerPaddle {
 	int x;
 	int y;
 	int width = 15;
 	int height = 40;
 	int speed = 2;
-	
+
 	Rectangle boundingBox; // collision create
-	
+
 	boolean goingUp = false; // player1 paddle movements
 	boolean goingDown = false;
-	
-	public PlayerPaddle(int x,int y){
+
+	public PlayerPaddle(int x, int y) {
 		this.x = x;
 		this.y = y;
-		
-		boundingBox = new Rectangle(x , y , width , height); // giving it collision
-		boundingBox.setBounds(x , y , width , height);
+
+		boundingBox = new Rectangle(x, y, width, height); // giving it collision
+		boundingBox.setBounds(x, y, width, height);
 	}
-	
-	public void tick(Game game){
-		boundingBox.setBounds(x , y , width , height);
-		
+
+	public void tick(Game game) {
+		boundingBox.setBounds(x, y, width, height);
+
 		if (goingUp && y > 0) {
 			y -= speed;
 		}
 		if (goingDown && y < game.getHeight() - height) {
 			y += speed;
 		}
-	
-	
+
 	}
-	
-	public void render (Graphics g){
+
+	public void render(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(x, y, width, height);
 	}
