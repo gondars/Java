@@ -25,7 +25,10 @@ public class Ball {
 
 	public void tick(Game game) {
 		boundingBox.setBounds(x, y, size, size);
+<<<<<<< HEAD
 		
+=======
+>>>>>>> ee83e18e963df96c60f3ee088237ff064eca658d
 
 		if (x <= 0) { // player2 score counter
 			game.p2Score++;

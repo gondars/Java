@@ -33,8 +33,13 @@ public class Game extends Canvas implements Runnable {
 	public static boolean gameRunning; // checking if game is running
 
 	int p1Score , p2Score; // creating scores
+<<<<<<< HEAD
 
 
+=======
+	
+	
+>>>>>>> ee83e18e963df96c60f3ee088237ff064eca658d
 	public void run(){
 		requestFocus(); // doesn't need to click on game to run it
 
@@ -62,7 +67,11 @@ public class Game extends Canvas implements Runnable {
 		try {
 			Thread.sleep(350);
 		} catch (InterruptedException e) {
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> ee83e18e963df96c60f3ee088237ff064eca658d
 			e.printStackTrace();
 		}
 	}
@@ -139,6 +148,21 @@ public class Game extends Canvas implements Runnable {
 		
 
 	}
+<<<<<<< HEAD
+=======
+	
+	
+	
+	public static void main (String[] args){
+		Game game = new Game();						
+				game.start();
+			
+		
+		
+	}
+	
+	
+>>>>>>> ee83e18e963df96c60f3ee088237ff064eca658d
 
 	public static void main (String[] args){
 		Game game = new Game();						
