@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import javax.sound.sampled.*;
+import java.io.*;
 
 
 import javax.swing.*;
@@ -18,6 +20,7 @@ public class Game extends Canvas implements Runnable {
 	InputHandler IH ;
 	public static Player2Paddle player2; // loading player2 paddle
     public static Ball ball;
+  
 
 
 	JFrame frame; // window of the game
@@ -33,13 +36,8 @@ public class Game extends Canvas implements Runnable {
 	public static boolean gameRunning; // checking if game is running
 
 	int p1Score , p2Score; // creating scores
-<<<<<<< HEAD
 
 
-=======
-	
-	
->>>>>>> ee83e18e963df96c60f3ee088237ff064eca658d
 	public void run(){
 		requestFocus(); // doesn't need to click on game to run it
 
@@ -67,16 +65,12 @@ public class Game extends Canvas implements Runnable {
 		try {
 			Thread.sleep(350);
 		} catch (InterruptedException e) {
-<<<<<<< HEAD
 
-=======
-			
->>>>>>> ee83e18e963df96c60f3ee088237ff064eca658d
 			e.printStackTrace();
 		}
 	}
 
-	public Game(){
+	public Game(){ // game frame
 		frame = new JFrame(); // creating the frame of the game
 
 		//Setting the prefered size
@@ -109,7 +103,7 @@ public class Game extends Canvas implements Runnable {
 		ball.tick(this);
 
 	}
-	public void render(){
+	public void render(){ // graphics
 
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -148,25 +142,9 @@ public class Game extends Canvas implements Runnable {
 		
 
 	}
-<<<<<<< HEAD
-=======
-	
-	
-	
-	public static void main (String[] args){
-		Game game = new Game();						
-				game.start();
-			
-		
-		
-	}
-	
-	
->>>>>>> ee83e18e963df96c60f3ee088237ff064eca658d
 
 	public static void main (String[] args){
 		Game game = new Game();						
-				game.start();
-
+		game.start();
 	}
 }
